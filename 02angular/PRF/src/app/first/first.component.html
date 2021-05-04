@@ -1,0 +1,24 @@
+<div class="content" role="main">
+
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small" (click) = "hello()"><!-- Template Statement -->
+
+    <span>{{ title }} app is running!</span><!-- Template Interpolation -->
+  </div>
+
+<div *ngIf="title == 'PRF'" style="visibility: hidden;"><!-- Structural Directive 1-->
+  <span>
+    {{1 + 1}} <!-- Template Expression -->
+  </span>
+</div>
+<ul>
+  <li *ngFor="let x of example" (click) = "helloFrom(x)"><!-- Structural Directive 2-->
+    {{x}}
+  </li>
+</ul>
+
+<input type="text" [(ngModel)]="title" />
+<button (click)="goToSecond()">Second</button>
+<a [routerLink]="['/login']">Logout</a>
+  
+</div>
