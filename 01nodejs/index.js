@@ -18,7 +18,7 @@ mongoose.connect(dbUrl);
 
 
 //firebase
-const whiteList = ['http://localhost:4200', 'https://safe-wave-12202.herokuapp.com'];
+const whiteList = ['http://localhost:4200', 'https://safe-wave-12202.herokuapp.com', 'https://radiant-scrubland-45345.herokuapp.com'];
 
 var corsOption = {
     origin: function(origin, callback){

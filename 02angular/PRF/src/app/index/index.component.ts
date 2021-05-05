@@ -25,6 +25,14 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['/product-list']);
   }
 
+  goToBuyedProducts(){
+    this.router.navigate(['/buyed-products']);
+  }
+
+  goToTransactions(){
+    this.router.navigate(['/transactions']);
+  }
+
   ngOnInit(): void {
   }
 

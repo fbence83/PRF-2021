@@ -29,12 +29,87 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  buyProduct(product: any){
+
+  goToIndex(){
+    this.router.navigate(['/index']);
+  }
+
+  goToBuyedProducts(){
+    this.router.navigate(['/buyed-products']);
+  }
+
+  goToTransactions(){
+    this.router.navigate(['/transactions']);
+  }
+
+
+  createTransaction(data: any){
+    console.log(data);
+
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, '0');
+    let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    let yyyy = today.getFullYear();
+
+    let actualDate = yyyy+"-"+mm+"-"+dd;
+      
+    let res = {
+      transdate: actualDate,
+      amount: data.price,
+      productId: data.id
+    }
+
+    return res;
+  }
+
+
+  getProductName(product: any){
+    let pName: String;
+    pName = product.name;
+    return pName;
+  }
+
+
+  buyProduct(product: Object){
     //itt kapjuk meg a termeket
     //ezt kene tovabb passzolni a java springnek
-    this.connectionService.postProduct(product).subscribe(data => {
-      console.log(data);
+    console.log(product);
+    this.connectionService.addProduct(product).subscribe(data => {
+      
+      //felvette a cikket a táblába
+      if(data != null){
+        let transaction = this.createTransaction(data);
+
+        this.connectionService.addTransaction(transaction).subscribe(resp => {
+          console.log(resp);
+
+          
+        }, err => {
+          console.log(err);
+        })
+
+      //nem veszi fel a cikket mert már a táblában van, név alapján keressük  
+      }else{
+        let productName = this.getProductName(product);
+        this.connectionService.getProductByName(productName).subscribe(respProduct => {
+          console.log(respProduct);
+          let transaction = this.createTransaction(respProduct);
+
+          console.log(transaction);
+
+
+          this.connectionService.addTransaction(transaction).subscribe(tResp => {
+            console.log(tResp);
+          }, tErr => {
+            console.log(tErr);
+          })
+        }, er0 => {
+          console.log(er0);
+        })
+      }
+
     }, error => {
+      
       console.log(error);
     })
     //console.log(product);

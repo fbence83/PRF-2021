@@ -5,24 +5,24 @@
 
 
     <button (click)="goToIndex()">Home page</button>
-    <button (click)="goToBuyedProducts()">Buyed products</button>
+    <button (click)="goToProductList()">Product list</button>
     <button (click)="goToTransactions()">Transactions</button>
 
-    <h1 (click)='getOrderedProducts()'>List of Products (from MongoDB)</h1>
+    <h1>Buyed products (from PostgreSQL)</h1>
 
     <table>
         <thead>
             <tr>
                 <td>Name</td>
                 <td>Price</td>
-                <td>Buy</td>
+                
             </tr>
         </thead>
         <tbody>
             <tr *ngFor = "let product of products">
                 <td>{{product.name}}</td>
                 <td>{{product.price}} HUF</td>
-                <td><button (click) = "buyProduct(product)">Buy</button></td>
+                
             </tr>
         </tbody>
     </table>

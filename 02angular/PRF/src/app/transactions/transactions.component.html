@@ -1,0 +1,33 @@
+<div class="content" role="main">
+
+
+    <a [routerLink]="['/login']">Logout</a>
+
+
+    <button (click)="goToIndex()">Home page</button>
+    <button (click)="goToProductList()">Product list</button>
+    <button (click)="goToBuyedProducts()">Buyed products</button>
+
+    <h1>Transactions</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Product</td>
+                <td>Amount</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let trans of transactions">
+                <td>{{trans.name}}</td>
+                <td>{{trans.amount}} HUF</td>
+                <td>{{trans.date}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+  
+</div>

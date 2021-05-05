@@ -7,4 +7,5 @@ public interface ProductService {
     List<Product> getAllProducts();
     Product getProductById(int id);
     void deleteProductById(int id);
+    Product getProductByName(String name);
 }

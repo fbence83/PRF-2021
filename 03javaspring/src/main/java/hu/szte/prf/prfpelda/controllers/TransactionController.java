@@ -28,13 +28,13 @@ public class TransactionController {
     }
 
     @PostMapping(path="/transaction", consumes = "application/json")
-    public String newToDo(@RequestBody Transaction transaction) {
+    public Transaction newTransaction(@RequestBody Transaction transaction) {
         try {
             this.transactionService.addTransaction(transaction);
-            return "Success";
+            return transaction;
         } catch (Exception e) {
             System.out.println(e);
-            return "Error during the create operation";
+            return null;
         }
     }
 

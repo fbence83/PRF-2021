@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component';
+import { SecondComponent } from './second/second.component'
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { IndexComponent } from './index/index.component';
+import { BuyedProductsComponent } from './buyed-products/buyed-products.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { IndexComponent } from './index/index.component';
     ErrorComponent,
     LoginComponent,
     ProductListComponent,
-    IndexComponent
+    IndexComponent,
+    BuyedProductsComponent,
+    TransactionsComponent
   ],
   imports: [
     BrowserModule,

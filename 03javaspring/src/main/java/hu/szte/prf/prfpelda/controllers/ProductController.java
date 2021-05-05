@@ -33,13 +33,13 @@ public class ProductController {
     }
 
     @PostMapping(path="/product", consumes = "application/json")
-    public String newProduct(@RequestBody Product product) {
+    public Product newProduct(@RequestBody Product product) {
         try {
             this.productService.addProduct(product);
-            return "Success";
+            return product;
         } catch (Exception e) {
             System.out.println(e);
-            return "Error during the create operation";
+            return null;
         }
     }
 
@@ -57,6 +57,16 @@ public class ProductController {
     public Product getProductById(@RequestParam int id) {
         try {
             return this.productService.getProductById(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+
+    @GetMapping("/product_by_name")
+    public Product getProductByName(@RequestParam String name) {
+        try {
+            return this.productService.getProductByName(name);
         } catch (Exception e) {
             System.out.println(e);
             return null;
