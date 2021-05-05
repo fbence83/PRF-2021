@@ -12,19 +12,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import hu.szte.prf.prfpelda.models.ToDo;
-import hu.szte.prf.prfpelda.models.ToDoService;
+import hu.szte.prf.prfpelda.models.Product;
+import hu.szte.prf.prfpelda.models.ProductService;
 
 @RestController
 @RequestMapping
 @CrossOrigin(origins = "*")
-public class ToDoController {
+public class ProductController {
 
-    ToDoService toDoService;
+    ProductService productService;
 
     @Autowired
-    public ToDoController(ToDoService toDoService) {
-        this.toDoService = toDoService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
     @GetMapping("/")
@@ -32,10 +32,10 @@ public class ToDoController {
         return "Hello World!";
     }
 
-    @PostMapping(path="/todo", consumes = "application/json")
-    public String newToDo(@RequestBody ToDo todo) {
+    @PostMapping(path="/product", consumes = "application/json")
+    public String newProduct(@RequestBody Product product) {
         try {
-            this.toDoService.addToDo(todo);
+            this.productService.addProduct(product);
             return "Success";
         } catch (Exception e) {
             System.out.println(e);
@@ -43,30 +43,30 @@ public class ToDoController {
         }
     }
 
-    @GetMapping("/todos")
-    public List<ToDo> getAllToDo() {
+    @GetMapping("/products")
+    public List<Product> getAllProducts() {
         try {
-            return this.toDoService.getAllTodos();
+            return this.productService.getAllProducts();
         } catch (Exception e) {
             System.out.println(e);
             return null;
         }
     }
 
-    @GetMapping("/todo")
-    public ToDo getToDoById(@RequestParam int id) {
+    @GetMapping("/product")
+    public Product getProductById(@RequestParam int id) {
         try {
-            return this.toDoService.getToDoById(id);
+            return this.productService.getProductById(id);
         } catch (Exception e) {
             System.out.println(e);
             return null;
         }
     }
 
-    @DeleteMapping("/todo")
-    public String deleteToDoById(@RequestParam int id) {
+    @DeleteMapping("/product")
+    public String deleteProductById(@RequestParam int id) {
         try {
-            this.toDoService.deleteToDoById(id);
+            this.productService.deleteProductById(id);
             return "Delete Successful";
         } catch (Exception e) {
             System.out.println(e);

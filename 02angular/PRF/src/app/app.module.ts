@@ -9,6 +9,8 @@ import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { ErrorComponent } from './error/error.component';
 import { LoginComponent } from './login/login.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { LoginComponent } from './login/login.component';
     FirstComponent,
     SecondComponent,
     ErrorComponent,
-    LoginComponent
+    LoginComponent,
+    ProductListComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,

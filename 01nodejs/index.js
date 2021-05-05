@@ -12,7 +12,6 @@ const expressSession = require('express-session');
 const app = express();
 
 const port = process.env.PORT || 3000;
-
 const dbUrl = 'mongodb+srv://admin:'+process.env.DBPASS+'@prf-cluster.ib8d2.mongodb.net/test';
 
 mongoose.connect(dbUrl);

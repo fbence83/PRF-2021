@@ -1,0 +1,29 @@
+<div class="content" role="main">
+
+
+    <a [routerLink]="['/login']">Logout</a>
+
+
+    <h1 (click)='getOrderedProducts()'>List of Products</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Price</td>
+                <td>Buy</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let product of products">
+                <td>{{product.name}}</td>
+                <td>{{product.price}} HUF</td>
+                <td><button (click) = "buyProduct(product)">Buy</button></td>
+            </tr>
+        </tbody>
+    </table>
+    
+
+
+  
+</div>

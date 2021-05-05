@@ -7,7 +7,7 @@ export const environment = {
   custom: 'This is PRF dev',
   //serverUrl: 'https://prf-node-helloworld-bfarkas.herokuapp.com/'
   //serverUrl: 'http://localhost:3000/',
-  serverUrl: 'http://localhost:4200/server',
+  serverUrl: 'http://localhost:4200/server/',
   springUrl: 'https://radiant-scrubland-45345.herokuapp.com/'
 };
 
